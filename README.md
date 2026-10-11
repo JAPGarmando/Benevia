@@ -31,14 +31,14 @@ Si cambian los teléfonos, el domicilio o el horario, actualiza también el bloq
 
 ## QR listo para imprimir
 
-- [Descargar PNG de alta resolución](https://japgarmando.github.io/Benevia/qr/benevia-qr.png): **2700 × 2700 px**, metadatos de 600 ppp.
+- [Descargar PNG de alta resolución](https://japgarmando.github.io/Benevia/qr/benevia-qr.png): **3000 × 3000 px**, metadatos de 600 ppp, con marco rojo de esquinas redondeadas.
 - [Descargar SVG](https://japgarmando.github.io/Benevia/qr/benevia-qr.svg): módulos vectoriales y el logo original en PNG integrado; no requiere archivos externos. El logo conserva el detalle de la imagen fuente, no es una reconstrucción vectorial.
 - [Logo original extraído](assets/logo-benevia.png).
 - [Resultados reproducibles de lectura](qr/scan-results.json).
 
 Imprime preferentemente a **7 × 7 cm**, con un mínimo de **5 × 5 cm**, incluyendo el margen blanco. No recortes el margen, deformes el cuadrado ni añadas texto dentro del código. Una prueba con un teléfono sobre la impresión final permite comprobar el papel, el tamaño y la iluminación reales.
 
-Especificación: QR versión 5, corrección de errores **H**, módulos negros, fondo blanco, zona libre de **4 módulos**. El logo completo está centrado, con una placa blanca y sus proporciones originales. Las pruebas digitales usan **ZXing-C++ y OpenCV**, PNG, JPEG a distintas calidades, SVG renderizado, tamaños reducidos, desenfoque leve, rotación y perspectiva. Los resultados digitales no sustituyen una prueba física de impresión.
+Especificación: QR versión 5, corrección de errores **H**, módulos negros, fondo blanco, zona libre de **4 módulos**. El marco rojo se sitúa fuera de esa zona, en un lienzo ampliado: no modifica los módulos ni el logo original. El logo completo está centrado, con una placa blanca y sus proporciones originales. Las pruebas digitales usan **ZXing-C++ y OpenCV**, PNG, JPEG a distintas calidades, SVG renderizado, tamaños reducidos, desenfoque leve, rotación y perspectiva. Los resultados digitales no sustituyen una prueba física de impresión.
 
 ## Material gráfico y datos oficiales
 

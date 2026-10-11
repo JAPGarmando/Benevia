@@ -24,11 +24,15 @@ def verify(label, image):
 
 
 original = Image.open(ROOT / 'qr/benevia-qr.png').convert('RGB')
-# Check the full four-module border stays completely white.
-pixels = np.array(original)
-quiet = original.width * 4 // 45
+# Check the full four-module quiet zone inside the decorative frame stays white.
+spec = json.loads((ROOT / 'qr/specification.json').read_text())
+origin_x, origin_y = spec['qr_origin_px']
+qr_size = spec['qr_size_px']
+assert original.size == (spec['png_pixels'], spec['png_pixels'])
+pixels = np.array(original)[origin_y:origin_y+qr_size, origin_x:origin_x+qr_size]
+quiet = qr_size * spec['quiet_zone_modules'] // spec['total_modules']
 assert all(np.all(part == 255) for part in (pixels[:quiet], pixels[-quiet:], pixels[:, :quiet], pixels[:, -quiet:]))
-verify('PNG original 2700 px', original)
+verify(f'PNG original {original.width} px with red frame', original)
 for size in [180, 240, 300, 450, 600, 1200]:
     resized = original.resize((size, size), Image.Resampling.LANCZOS)
     verify(f'PNG {size} px', resized)

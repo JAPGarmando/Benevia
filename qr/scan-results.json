@@ -1,8 +1,8 @@
 {
   "expected_url": "https://japgarmando.github.io/Benevia/",
   "files": {
-    "benevia-qr.png": "4d2fb7795b0c4cda2742529736cf00f532a43425136d3db830a0692e8537a47a",
-    "benevia-qr.svg": "57d82c519250ca29c9a54ffae11e5c75c2d662ffcd9240003135523bac135488"
+    "benevia-qr.png": "2af72f1800479ae4d059fc115a2109d7ef34206cc67b5d77e4507ea4c6ed74d3",
+    "benevia-qr.svg": "7dc76004694383323c963f910669801da960580caf8fa54ffb848d16e6919f9b"
   },
   "engines": {
     "opencv": "5.0.0",
@@ -10,7 +10,7 @@
   },
   "cases": [
     {
-      "case": "PNG original 2700 px",
+      "case": "PNG original 3000 px with red frame",
       "zxing": true,
       "opencv": true
     },

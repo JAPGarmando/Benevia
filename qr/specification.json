@@ -5,7 +5,17 @@
   "quiet_zone_modules": 4,
   "data_modules": 37,
   "total_modules": 45,
-  "png_pixels": 2700,
+  "png_pixels": 3000,
+  "qr_origin_px": [
+    150,
+    150
+  ],
+  "qr_size_px": 2700,
+  "frame": {
+    "color": "#e51c2b",
+    "width_px": 48,
+    "outside_quiet_zone": true
+  },
   "recommended_print_mm": 70,
   "minimum_print_mm": 50,
   "logo_source": "Photo 2.jpg, original red logo; no tracing or redesign",
