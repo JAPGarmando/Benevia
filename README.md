@@ -42,7 +42,7 @@ Especificación: QR versión 5, corrección de errores **H**, módulos negros, f
 
 ## Material gráfico y datos oficiales
 
-- `Photo 1.jpg`, proporcionada por el propietario, ya contiene todos los precios actualizados. Se convirtió a PNG sin cambiar sus píxeles RGB; se conservan el fondo, los garrafones, el logo y el texto completo. El sitio ofrece una copia WebP optimizada y permite ampliar el PNG original.
+- `Photo 1.jpg`, proporcionada por el propietario, ya contiene todos los precios actualizados. Se convirtió a PNG conservando el fondo, los garrafones, el logo y el texto. Posteriormente se corrigió únicamente el dígito de cierre, de «6:00 pm» a «5:00 pm», a solicitud del propietario. Se usó el editor de imágenes integrado con la instrucción «cambiar únicamente 6:00 pm por 5:00 pm, conservando el diseño»; solo se incorporó la región del dígito corregido. Todos los píxeles fuera de esa región permanecen idénticos al cartel original. El sitio ofrece una copia WebP optimizada y permite ampliar el PNG original.
 - El logo procede de `Photo 2.jpg`: región `(254, 501, 1034, 741)` del original de 1280 × 1280. Se conservaron los píxeles rojos del logo y se limpió el fondo de los módulos del QR anterior. Incluye nombre completo, líneas decorativas, estrella, MR y lema. No se utilizó IA generativa, tipografía sustitutiva ni un rediseño.
 - Se cotejaron ambos materiales con la información solicitada: no se encontraron discrepancias. El domicilio del cartel usa la abreviatura «Col. Portales Sur»; el contacto de la página añade Ciudad de México.
 
@@ -55,7 +55,7 @@ Especificación: QR versión 5, corrección de errores **H**, módulos negros, f
 
 Llave Punzoflex: $50.00. Garrafón nuevo 20 LTS: $130.00. Garrafón nuevo 11 LTS: $110.00. Importes en MXN, correspondientes al cartel inicial; el cartel publicado es la referencia para actualizaciones futuras.
 
-Horario: lunes a sábado, 8:30 am a 6:00 pm. Pedidos hasta las 5:00 pm. Servicio a domicilio. Teléfono: 55 5605 4377. WhatsApp: 55 6136 2046. Pirineos 121, Colonia Portales Sur, C.P. 03300, Ciudad de México.
+Horario: lunes a sábado, 8:30 am a 5:00 pm. Pedidos hasta las 5:00 pm. Servicio a domicilio. Teléfono: 55 5605 4377. WhatsApp: 55 6136 2046. Pirineos 121, Colonia Portales Sur, C.P. 03300, Ciudad de México.
 
 ## Estructura y despliegue
 
