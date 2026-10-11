@@ -1,0 +1,58 @@
+name: Deploy Benevia to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Configure Pages
+        uses: actions/configure-pages@v6.0.0
+      - name: Install image optimizer
+        run: python -m pip install -r requirements-build.txt
+      - name: Verify price updates and prepare website
+        run: |
+          python -m unittest discover -s tests -p 'test_build.py' -v
+          python scripts/build.py
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1
+      - name: Report deployment
+        if: always()
+        env:
+          DEPLOY_RESULT: ${{ steps.deployment.outcome }}
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          echo "Deployment: $DEPLOY_RESULT" >> "$GITHUB_STEP_SUMMARY"
+          echo "$PAGE_URL" >> "$GITHUB_STEP_SUMMARY"

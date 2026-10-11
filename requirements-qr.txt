@@ -1,0 +1,5 @@
+-r requirements-build.txt
+qrcode==8.2
+zxing-cpp==3.1.1
+opencv-python-headless==5.0.0.93
+resvg-py==0.5.0

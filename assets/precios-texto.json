@@ -1,0 +1,30 @@
+{
+  "poster_sha256": "f37eb31cc5aa57d8d5a7dbd7b53a22b4dfc2c79693aeef2b9386f50101c9db88",
+  "prices": [
+    [
+      "Garrafón 20 LTS",
+      "$35.00",
+      "$40.00"
+    ],
+    [
+      "Garrafón 11 LTS",
+      "$20.00",
+      "$25.00"
+    ],
+    [
+      "Garrafón 10 LTS",
+      "$15.00",
+      "$20.00"
+    ],
+    [
+      "Garrafón 5 LTS",
+      "$5.00",
+      "No especificado"
+    ]
+  ],
+  "extras": [
+    "Llave Punzoflex: $50.00",
+    "Garrafón nuevo 20 LTS: $130.00",
+    "Garrafón nuevo 11 LTS: $110.00"
+  ]
+}

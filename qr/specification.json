@@ -1,0 +1,13 @@
+{
+  "url": "https://japgarmando.github.io/Benevia/",
+  "version": 5,
+  "error_correction": "H",
+  "quiet_zone_modules": 4,
+  "data_modules": 37,
+  "total_modules": 45,
+  "png_pixels": 2700,
+  "recommended_print_mm": 70,
+  "minimum_print_mm": 50,
+  "logo_source": "Photo 2.jpg, original red logo; no tracing or redesign",
+  "svg": "Vector QR modules with the original lossless PNG logo embedded"
+}

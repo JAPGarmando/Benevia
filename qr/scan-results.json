@@ -1,0 +1,180 @@
+{
+  "expected_url": "https://japgarmando.github.io/Benevia/",
+  "files": {
+    "benevia-qr.png": "4d2fb7795b0c4cda2742529736cf00f532a43425136d3db830a0692e8537a47a",
+    "benevia-qr.svg": "57d82c519250ca29c9a54ffae11e5c75c2d662ffcd9240003135523bac135488"
+  },
+  "engines": {
+    "opencv": "5.0.0",
+    "zxing_cpp": "3.1.1"
+  },
+  "cases": [
+    {
+      "case": "PNG original 2700 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "PNG 180 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 180 px quality 95",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 180 px quality 75",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 180 px quality 50",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "PNG 240 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 240 px quality 95",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 240 px quality 75",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 240 px quality 50",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "PNG 300 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 300 px quality 95",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 300 px quality 75",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 300 px quality 50",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "PNG 450 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 450 px quality 95",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 450 px quality 75",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 450 px quality 50",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "PNG 600 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 600 px quality 95",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 600 px quality 75",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 600 px quality 50",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "PNG 1200 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 1200 px quality 95",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 1200 px quality 75",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "JPEG 1200 px quality 50",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "SVG rendered 180 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "SVG rendered 300 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "SVG rendered 600 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "SVG rendered 1200 px",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "600 px blur radius 0.6",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "600 px rotated 15 degrees",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "600 px rotated 90 degrees",
+      "zxing": true,
+      "opencv": true
+    },
+    {
+      "case": "600 px perspective distortion",
+      "zxing": true,
+      "opencv": true
+    }
+  ],
+  "passed": true,
+  "note": "Digital decoding tests; physical print/camera testing was not performed."
+}
