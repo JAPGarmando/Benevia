@@ -13,11 +13,16 @@ class PriceUpdates(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             shutil.copy(ROOT / 'index.html', root)
-            for folder in ('assets', 'qr'):
+            for folder in ('assets', 'qr', 'experiencia'):
                 shutil.copytree(ROOT / folder, root / folder)
             qr_before = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (root / 'qr').iterdir()}
             before = build(root, root / 'first')
             self.assertIn('Consultar precios en texto', (root / 'first/index.html').read_text())
+            experience_before = (root / 'first/experiencia/index.html').read_text()
+            self.assertIn('data-price="20">$35.00', experience_before)
+            self.assertIn('"delivery": null', experience_before)
+            self.assertIn('Llave Punzoflex', experience_before)
+            self.assertIn('8:30 am a 5:00 pm', experience_before)
             with Image.open(root / 'assets/precios.png') as original:
                 changed = original.resize((720, 960))
             changed.putpixel((0, 0), (0, 0, 0))
@@ -31,6 +36,12 @@ class PriceUpdates(unittest.TestCase):
             self.assertIn('https://wa.me/525561362046', page)
             self.assertNotIn('Consultar precios en texto', page)
             self.assertNotIn('$35.00', page)
+            experience_after = (root / 'second/experiencia/index.html').read_text()
+            self.assertIn('Tenemos una nueva lista de precios.', experience_after)
+            self.assertIn('"items": []', experience_after)
+            self.assertNotIn('$35.00', experience_after)
+            self.assertNotIn('$130.00', experience_after)
+            self.assertIn('width="720" height="960"', experience_after)
             for asset in ('png', 'webp'):
                 self.assertTrue((root / 'second' / after[asset]).is_file())
             qr_after = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (root / 'second/qr').iterdir()}

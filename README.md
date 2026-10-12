@@ -4,6 +4,8 @@ Sitio oficial de precios: **https://japgarmando.github.io/Benevia/**
 
 Repositorio: https://github.com/JAPGarmando/Benevia
 
+Nueva web animada: **https://japgarmando.github.io/Benevia/experiencia/**. Es una página independiente: la página original de precios y el destino del QR se conservan. Incluye una escena de agua animada, precios por servicio, un preparador de pedidos por WhatsApp, el cartel ampliable y la ubicación. [Diseño, fuentes y mantenimiento de la nueva web](experiencia/README.md).
+
 El QR contiene directamente esa URL, incluida la `/` final. No utiliza redirecciones comerciales, cuentas de QR, suscripciones ni servicios de pago. Sigue funcionando mientras el repositorio, esa ruta y GitHub Pages permanezcan activos.
 
 ## Actualizar precios sin cambiar el QR
@@ -27,7 +29,9 @@ Para mantener también la tabla accesible, actualiza sus precios y `poster_sha25
 python3 -c "import hashlib; print(hashlib.sha256(open('assets/precios.png','rb').read()).hexdigest())"
 ```
 
-Si cambian los teléfonos, el domicilio o el horario, actualiza también el bloque de contacto en `index.html`.
+Si cambian los teléfonos, el domicilio o el horario, actualiza también los bloques de contacto y datos estructurados en `index.html` y `experiencia/index.html`, y los enlaces de `experiencia/app.js`.
+
+La página `/experiencia/` usa el mismo cartel y la misma huella. Para actualizar sus tarjetas y calculadora, actualiza también `assets/precios-texto.json`. Si solo reemplazas el PNG, se muestra el cartel nuevo y se ocultan los precios anteriores y la calculadora; los botones siguen abriendo WhatsApp. Así nunca se publica un cálculo basado en precios antiguos.
 
 ## QR listo para imprimir
 
@@ -69,6 +73,8 @@ qr/benevia-qr.svg              QR con módulos vectoriales
 qr/specification.json          Especificación del QR
 qr/scan-results.json           Resultados de dos decodificadores
 scripts/build.py              Prepara dist/ y versiones de imágenes
+scripts/build_experience.py   Prepara la nueva página independiente
+experiencia/                  Web animada, estilos, JavaScript e imágenes
 scripts/generate_qr.py         Generador; no se ejecuta al cambiar precios
 scripts/test_qr.py             Pruebas reales de lectura
 tests/test_build.py           Prueba del cambio de cartel y permanencia del QR
@@ -102,3 +108,14 @@ Solo para regenerar o verificar el QR (no necesario al actualizar precios):
 ```
 
 El SVG se renderiza con resvg-py, sin instalar bibliotecas gráficas del sistema. La preparación y el despliegue normal no necesitan resvg, OpenCV ni ZXing.
+
+Pruebas de navegador de la nueva página (solo desarrollo; el sitio no carga dependencias npm):
+
+```sh
+npm ci
+npx playwright install chromium
+npm run test:browser -- --local  # Después de preparar dist/ con scripts/build.py
+npm run test:browser            # Comprueba la web pública
+```
+
+Opcionalmente usa `BROWSER_EXECUTABLE` para Chrome ya instalado o `BROWSER_ENGINE=webkit` después de `npx playwright install webkit`. Las pruebas verifican cuatro anchos de pantalla, precios, cantidades, totales, enlace de WhatsApp, cartel, foco del teclado, accesibilidad automática, movimiento reducido y funcionamiento sin JavaScript o WebGL. Las capturas y resultados se guardan en `.qa/`.

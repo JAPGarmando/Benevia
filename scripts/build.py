@@ -5,6 +5,10 @@ import html
 import json
 import shutil
 from PIL import Image
+if __package__:
+    from .build_experience import build_experience
+else:
+    from build_experience import build_experience
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -49,6 +53,7 @@ def build(root=ROOT, output=None):
     (output / "index.html").write_text(page)
     (output / ".nojekyll").touch()
     (output / "assets/precios-texto.json").unlink(missing_ok=True)
+    build_experience(root, output, {"poster_sha256": digest, "png": png, "webp": webp, "width": width, "height": height})
     print(f"Cartel: {width} × {height}; versión {version}; WebP {(output / webp).stat().st_size:,} bytes")
     return {"poster_sha256": digest, "png": png, "webp": webp}
 
